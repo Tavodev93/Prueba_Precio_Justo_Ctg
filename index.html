@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precio Justo Cartagena - Guía para Turistas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFC837 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".1" fill="%23ffffff"/></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1585924683479-d5e321bb3e3b?w=1200') center/cover;
+            animation: zoomIn 20s infinite alternate;
+        }
+        
+        @keyframes zoomIn {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .logo-container {
+            background: white;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .logo-text {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FF6B35, #FFC837);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .search-glow {
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+        }
+        
+        .image-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-overlay img {
+            transition: transform 0.5s ease;
+        }
+        
+        .image-overlay:hover img {
+            transform: scale(1.15);
+        }
+        
+        .badge-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(255,200,55,0.1));
+            backdrop-filter: blur(10px);
+        }
+        
+        .category-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Header with Logo -->
+    <header class="gradient-bg text-white shadow-2xl relative z-10">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="logo-container float-animation">
+                        <span class="logo-text">PJ</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl md:text-4xl font-bold drop-shadow-lg">Precio Justo</h1>
+                        <p class="text-sm md:text-base opacity-90 mt-1">Cartagena de Indias 🏝️</p>
+                    </div>
+                </div>
+                <div class="text-right hidden md:block">
+                    <div class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full">
+                        <span class="text-sm font-semibold">🇨🇴 Tu guía confiable</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-32 relative">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-2xl">¡Bienvenido a Cartagena!</h2>
+            <p class="text-xl md:text-2xl mb-8 drop-shadow-lg">Evita estafas, conoce los precios reales antes de pagar</p>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <div class="stats-card text-center p-4 rounded-lg">
+                    <p class="text-3xl font-bold">2,500+</p>
+                    <p class="text-sm">Turistas ayudados</p>
+                </div>
+                <div class="stats-card text-center p-4 rounded-lg">
+                    <p class="text-3xl font-bold">100+</p>
+                    <p class="text-sm">Servicios verificados</p>
+                </div>
+                <div class="stats-card text-center p-4 rounded-lg">
+                    <p class="text-3xl font-bold">4.8⭐</p>
+                    <p class="text-sm">Calificación promedio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 -mt-16 relative z-20">
+        
+        <!-- Search Section -->
+        <section class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 mb-12 search-glow">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">¿Qué servicio buscas?</h2>
+                <p class="text-gray-600">Verifica si el precio es justo en segundos</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">📂 Categoría</label>
+                    <select id="categoria" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+                        <option value="">Todas las categorías</option>
+                        <option value="tours">🚤 Tours y Excursiones</option>
+                        <option value="transporte">🚕 Transporte</option>
+                        <option value="restaurantes">🍽️ Restaurantes</option>
+                        <option value="hoteles">🏨 Hoteles</option>
+                        <option value="playas">🏖️ Playas y Clubes</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">🔍 Buscar servicio</label>
+                    <input type="text" id="busqueda" placeholder="Ej: Tour Islas del Rosario" 
+                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">💰 ¿Qué precio te están cobrando? (COP)</label>
+                <input type="number" id="precioOfrecido" placeholder="Ej: 150000" 
+                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all text-lg">
+            </div>
+
+            <button onclick="buscarServicio()" 
+                    class="w-full bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-bold py-4 px-8 rounded-xl transition duration-300 transform hover:scale-105 shadow-lg text-lg">
+                🔍 Verificar Precio Ahora
+            </button>
+        </section>
+
+        <!-- Results Section -->
+        <section id="resultados" class="hidden mb-12">
+            <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                    <span>📊</span> Resultados de tu búsqueda
+                </h3>
+                <div id="listaResultados" class="space-y-6"></div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Explora por Categoría</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div onclick="filtrarCategoria('tours')" class="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-6 rounded-2xl text-center cursor-pointer card-hover shadow-lg">
+                    <div class="category-icon mb-2">🚤</div>
+                    <p class="font-bold">Tours</p>
+                </div>
+                <div onclick="filtrarCategoria('transporte')" class="bg-gradient-to-br from-yellow-500 to-yellow-600 text-white p-6 rounded-2xl text-center cursor-pointer card-hover shadow-lg">
+                    <div class="category-icon mb-2">🚕</div>
+                    <p class="font-bold">Transporte</p>
+                </div>
+                <div onclick="filtrarCategoria('restaurantes')" class="bg-gradient-to-br from-red-500 to-red-600 text-white p-6 rounded-2xl text-center cursor-pointer card-hover shadow-lg">
+                    <div class="category-icon mb-2">🍽️</div>
+                    <p class="font-bold">Restaurantes</p>
+                </div>
+                <div onclick="filtrarCategoria('hoteles')" class="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-6 rounded-2xl text-center cursor-pointer card-hover shadow-lg">
+                    <div class="category-icon mb-2">🏨</div>
+                    <p class="font-bold">Hoteles</p>
+                </div>
+                <div onclick="filtrarCategoria('playas')" class="bg-gradient-to-br from-cyan-500 to-cyan-600 text-white p-6 rounded-2xl text-center cursor-pointer card-hover shadow-lg">
+                    <div class="category-icon mb-2">🏖️</div>
+                    <p class="font-bold">Playas</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Services with Images -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">✨ Servicios Más Buscados</h2>
+            <div id="serviciosPopulares" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </section>
+
+        <!-- Tips Section -->
+        <section class="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-orange-200 p-8 rounded-2xl shadow-lg mb-12">
+            <div class="flex items-start gap-4">
+                <div class="text-6xl">💡</div>
+                <div class="flex-1">
+                    <h3 class="text-2xl font-bold text-orange-800 mb-4">Consejos de Oro para Turistas</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="flex items-start gap-2">
+                            <span class="text-green-600 font-bold text-xl">✓</span>
+                            <p class="text-gray-700">Siempre pregunta precios antes de tomar el servicio</p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-green-600 font-bold text-xl">✓</span>
+                            <p class="text-gray-700">Negocia con respeto, es parte de la cultura local</p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-green-600 font-bold text-xl">✓</span>
+                            <p class="text-gray-700">Usa esta guía como referencia, no como precio absoluto</p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-green-600 font-bold text-xl">✓</span>
+                            <p class="text-gray-700">Los precios varían en temporada alta (Dic-Ene)</p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-green-600 font-bold text-xl">✓</span>
+                            <p class="text-gray-700">Pregunta qué incluye exactamente el servicio</p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-green-600 font-bold text-xl">✓</span>
+                            <p class="text-gray-700">Pide recomendaciones a otros turistas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">💬 Lo Que Dicen Nuestros Usuarios</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">M</div>
+                        <div>
+                            <p class="font-bold">María González</p>
+                            <p class="text-sm text-gray-500">🇪🇸 España</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-600 italic">"Me salvó de pagar el triple en un tour. ¡Excelente herramienta!"</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl">J</div>
+                        <div>
+                            <p class="font-bold">John Smith</p>
+                            <p class="text-sm text-gray-500">🇺🇸 USA</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-600 italic">"Super useful! Helped me negotiate better prices everywhere."</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl">L</div>
+                        <div>
+                            <p class="font-bold">Laura Martínez</p>
+                            <p class="text-sm text-gray-500">🇦🇷 Argentina</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-600 italic">"Perfecto para planificar el presupuesto del viaje. ¡Muy recomendado!"</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="logo-container" style="width: 50px; height: 50px;">
+                            <span class="logo-text" style="font-size: 24px;">PJ</span>
+                        </div>
+                        <span class="font-bold text-xl">Precio Justo</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Tu mejor aliado para disfrutar Cartagena sin preocupaciones.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-orange-400 transition">Inicio</a></li>
+                        <li><a href="#" class="hover:text-orange-400 transition">Servicios</a></li>
+                        <li><a href="#" class="hover:text-orange-400 transition">Consejos</a></li>
+                        <li><a href="#" class="hover:text-orange-400 transition">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Categorías</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-orange-400 transition">Tours</a></li>
+                        <li><a href="#" class="hover:text-orange-400 transition">Transporte</a></li>
+                        <li><a href="#" class="hover:text-orange-400 transition">Restaurantes</a></li>
+                        <li><a href="#" class="hover:text-orange-400 transition">Hoteles</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Síguenos</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition">f</a>
+                        <a href="#" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition">📷</a>
+                        <a href="#" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-sm text-gray-400">🏖️ Hecho con ❤️ para los turistas de Cartagena de Indias</p>
+                <p class="text-xs mt-2 text-gray-500">Los precios son referenciales y pueden variar • © 2026 Precio Justo</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const servicios = [
+            {
+                id: 1,
+                categoria: 'tours',
+                nombre: 'Tour Islas del Rosario',
+                precioMin: 80000,
+                precioPromedio: 120000,
+                precioMax: 150000,
+                incluye: ['Transporte', 'Almuerzo', 'Snorkel'],
+                duracion: '8 horas',
+                descripcion: 'Tour completo a las hermosas Islas del Rosario con aguas cristalinas',
+                imagen: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800',
+                popular: true
+            },
+            {
+                id: 2,
+                categoria: 'tours',
+                nombre: 'City Tour Centro Histórico',
+                precioMin: 50000,
+                precioPromedio: 80000,
+                precioMax: 100000,
+                incluye: ['Guía profesional', 'Entrada a museos', 'Bebida'],
+                duracion: '3-4 horas',
+                descripcion: 'Recorrido mágico por la ciudad amurallada y sus calles coloniales',
+                imagen: 'https://images.unsplash.com/photo-1605722243979-fe0be8158232?w=800',
+                popular: true
+            },
+            {
+                id: 3,
+                categoria: 'transporte',
+                nombre: 'Taxi Aeropuerto - Centro',
+                precioMin: 15000,
+                precioPromedio: 20000,
+                precioMax: 25000,
+                incluye: ['Transporte directo', 'Equipaje incluido'],
+                duracion: '20-30 min',
+                descripcion: 'Traslado seguro desde el aeropuerto al centro histórico',
+                imagen: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800',
+                popular: false
+            },
+            {
+                id: 4,
+                categoria: 'transporte',
+                nombre: 'Taxi Centro - Bocagrande',
+                precioMin: 8000,
+                precioPromedio: 12000,
+                precioMax: 15000,
+                incluye: ['Transporte directo'],
+                duracion: '10-15 min',
+                descripcion: 'Traslado rápido entre los barrios principales de la ciudad',
+                imagen: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=800',
+                popular: false
+            },
+            {
+                id: 5,
+                categoria: 'playas',
+                nombre: 'Playa Blanca (Barú)',
+                precioMin: 70000,
+                precioPromedio: 100000,
+                precioMax: 130000,
+                incluye: ['Transporte ida/vuelta', 'Almuerzo típico', 'Bebida'],
+                duracion: 'Día completo',
+                descripcion: 'Paraíso de arena blanca y mar turquesa en la Isla Barú',
+                imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+                popular: true
+            },
+            {
+                id: 6,
+                categoria: 'restaurantes',
+                nombre: 'Almuerzo Típico Costeño',
+                precioMin: 25000,
+                precioPromedio: 40000,
+                precioMax: 60000,
+                incluye: ['Plato principal', 'Bebida', 'Postre'],
+                duracion: '1 hora',
+                descripcion: 'Deliciosa comida típica costeña en restaurante local',
+                imagen: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800',
+                popular: true
+            },
+            {
+                id: 7,
+                categoria: 'tours',
+                nombre: 'Volcán del Totumo',
+                precioMin: 60000,
+                precioPromedio: 90000,
+                precioMax: 120000,
+                incluye: ['Transporte', 'Entrada', 'Masaje en barro', 'Baño en laguna'],
+                duracion: '4-5 horas',
+                descripcion: 'Experiencia única de baño de lodo en volcán natural',
+                imagen: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800',
+                popular: true
+            },
+            {
+                id: 8,
+                categoria: 'playas',
+                nombre: 'Entrada Club de Playa',
+                precioMin: 40000,
+                precioPromedio: 60000,
+                precioMax: 80000,
+                incluye: ['Acceso', 'Silla', 'Sombrilla', 'Ducha'],
+                duracion: 'Día completo',
+                descripcion: 'Disfruta de las mejores playas con todas las comodidades',
+                imagen: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800',
+                popular: true
+            },
+            {
+                id: 9,
+                categoria: 'tours',
+                nombre: 'Chiva Rumbera (Tour Nocturno)',
+                precioMin: 50000,
+                precioPromedio: 70000,
+                precioMax: 90000,
+                incluye: ['Transporte', 'Bebidas', 'Música en vivo', 'Paradas en bares'],
+                duracion: '3-4 horas',
+                descripcion: 'Fiesta tradicional colombiana en bus colorido con música',
+                imagen: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800',
+                popular: false
+            },
+            {
+                id: 10,
+                categoria: 'hoteles',
+                nombre: 'Hotel Zona Turística (3 estrellas)',
+                precioMin: 150000,
+                precioPromedio: 250000,
+                precioMax: 350000,
+                incluye: ['Habitación doble', 'Desayuno', 'WiFi', 'Piscina'],
+                duracion: 'Por noche',
+                descripcion: 'Alojamiento cómodo en zona turística con buenas amenidades',
+                imagen: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
+                popular: false
+            }
+        ];
+
+        function mostrarServiciosPopulares() {
+            const container = document.getElementById('serviciosPopulares');
+            const populares = servicios.filter(s => s.popular);
+            
+            container.innerHTML = populares.map(s => `
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover cursor-pointer" onclick="verDetalle(${s.id})">
+                    <div class="image-overlay h-48 relative">
+                        <img src="${s.imagen}" alt="${s.nombre}" class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-orange-
